@@ -1,0 +1,18 @@
+.searchContactForm {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.searchLabel {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
