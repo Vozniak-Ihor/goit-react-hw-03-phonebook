@@ -6,9 +6,19 @@ import Filter from './Filter/Filter';
 
 export class App extends Component {
   state = {
-    contacts: JSON.parse(localStorage.getItem('contacts')) || [],
+    contacts: [],
     filter: '',
   };
+
+  componentDidMount() {
+    if (JSON.parse(localStorage.getItem('contacts')) !== '') {
+      this.setState({ contacts: JSON.parse(localStorage.getItem('contacts')) });
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('contacts', JSON.stringify([...this.state.contacts]));
+  }
   handleInputChange = e => {
     this.setState({ filter: e.target.value });
   };
@@ -30,17 +40,9 @@ export class App extends Component {
       name: values.name,
       number: values.phoneNumber.toString(),
     };
-    this.setState(
-      prevState => ({
-        contacts: [...prevState.contacts, newContact],
-      }),
-      () => {
-        localStorage.setItem(
-          'contacts',
-          JSON.stringify([...this.state.contacts])
-        );
-      }
-    );
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, newContact],
+    }));
     actions.resetForm();
   };
 

@@ -32,7 +32,7 @@ class LoginForm extends Component {
           <label>
             Name
             <Field className={css.contactInput} type="text" name="name" />
-            <ErrorMessage  name="name" component="div" />
+            <ErrorMessage name="name" component="div" />
           </label>
 
           <label>
@@ -40,7 +40,9 @@ class LoginForm extends Component {
             <Field className={css.contactInput} type="tel" name="phoneNumber" />
             <ErrorMessage name="phoneNumber" component="div" />
           </label>
-          <button className={css.submitButton} type="submit">Add contact</button>
+          <button className={css.submitButton} type="submit">
+            Add contact
+          </button>
         </Form>
       </Formik>
     );
